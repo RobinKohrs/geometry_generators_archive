@@ -1,6 +1,19 @@
+## Draw borders, but not coastlines
+
+from this fantastic answer [here](https://gis.stackexchange.com/questions/468817/drawing-borders-only-for-common-border-of-polygons-in-qgis/468834?noredirect=1#comment766413_468834)
+
+```
+collect_geometries(
+    array_foreach(
+        overlay_intersects (@layer, boundary($geometry)),
+        shared_paths (@element, boundary($geometry))
+    )
+)
+```
+
 ## Joy Devistion plot from dem with bound of dem
 
-- directly from [here](https://hannes.enjoys.it/blog/2019/09/dynamic-elevation-profile-lines-as-qgis-geometry-generator/) only restricted to the bounds of the raster
+ directly from [here](https://hannes.enjoys.it/blog/2019/09/dynamic-elevation-profile-lines-as-qgis-geometry-generator/) only restricted to the bounds of the raster
 
 ```
 -- UPPER CASE comments below are where you can change things
